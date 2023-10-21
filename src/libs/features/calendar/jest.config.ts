@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
   displayName: 'calendar',
-  preset: '../../jest.preset.js',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/calendar',
+  coverageDirectory: '../../../../coverage/src/libs/features/calendar',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
