@@ -15,6 +15,11 @@
         "production": {
           "devServerTarget": "e-calendar:serve:production"
         },
+        "chrome": {
+          "browser": "chrome",
+          "headed": true,
+          "exit": false
+        },
         "ci": {
           "devServerTarget": "e-calendar:serve-static"
         }

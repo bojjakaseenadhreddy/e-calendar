@@ -8,6 +8,9 @@
     "test": "nx test",
     "lint": "nx lint",
     "lint:fix": "nx lint --fix",
+    "e2e": "nx run e2e:e2e",
+    "e2e:production": "nx run e2e:e2e:production",
+    "e2e:chrome": "nx run e2e:e2e:chrome",
     "prepare": "husky install"
   },
   "private": true,
