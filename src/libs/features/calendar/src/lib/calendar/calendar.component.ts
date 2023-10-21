@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
-export class CalendarComponent {}
+export class CalendarComponent {
+  title = 'E-calendar works'
+}
