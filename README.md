@@ -8,4 +8,4 @@ To start the development server run `nx serve e-calendar`. Open your browser and
 
 ## Ready to deploy?
 
-Just run `nx build demoapp` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
+Just run `nx build` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
