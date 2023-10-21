@@ -24,7 +24,19 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "max-lines": ["error", 300],
+        "max-lines-per-function": [
+          "error",
+          { "max": 30, "skipBlankLines": true }
+        ],
+        "max-nested-callbacks": ["error", 5],
+        "no-nested-ternary": "error",
+        "max-depth": ["error", 10],
+        "max-params": ["error", 4],
+        "complexity": ["error", 10],
+        "no-console": [2, { "allow": ["error"] }]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
