@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@e-calendar/calendar": ["src/libs/features/calendar/src/index.ts"]
+      "@e-calendar/calendar": ["src/libs/features/calendar/src/index.ts"],
+      "@e-calendar/common": ["src/libs/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

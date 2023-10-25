@@ -1,1 +1,66 @@
-<h1 class="text-3xl font-bold underline">{{title}}</h1>
+<div class="grid grid-rows-2 grid-cols-1 gap-4 m-4 bg-gray-800 text-white p-4 rounded-xl">
+    <div class="flex justify-around align-middle text-center items-center  text-2xl">
+        <div>
+            {{appTitle}}
+        </div>
+        <div>
+            {{calendar.year}}
+        </div>
+    </div>
+
+    <div class="flex justify-around align-middle text-center items-center ">
+        <div class="text-slate-500">{{monthNames[calendar.previousMonth.month]}}</div>
+        <div class="text-2xl">{{monthNames[calendar.currentMonth.month]}}</div>
+        <div class=" text-slate-500">{{monthNames[calendar.nextMonth.month]}}</div>
+    </div>
+
+    <hr>
+
+    <div class="grid grid-cols-10 grid-rows-1 gap-4">
+        <div class="col-span-1 flex justify-around align-middle text-center items-center">
+            <svg (click)="moveToPreviousMonth()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="3.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+        </div>
+
+        <div class="col-span-8">
+            <div class="grid grid-cols-7 gap-4 justify-around align-middle text-center items-center  ">
+                <div class="h-8" *ngFor="let weekName of weekNames">
+                    {{weekName}}
+                </div>
+
+                <ng-container *ngIf="calendar.previousMonth.display">
+                    <ng-container
+                        *ngFor="let _ of [].constructor(calendar.previousMonth.displayToDate - calendar.previousMonth.displayFromDate + 1); let i = index;">
+                        <div class=" text-slate-500 h-8">
+                            {{calendar.previousMonth.displayFromDate + i }}
+                        </div>
+                    </ng-container>
+                </ng-container>
+
+                <ng-container *ngFor="let _ of [].constructor(calendar.currentMonth.displayToDate); let i = index;">
+                    <div class="hover:bg-red-600 hover:rounded-xl h-8">
+                        {{calendar.currentMonth.displayFromDate + i}}
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="calendar.nextMonth.display">
+                    <ng-container *ngFor="let _ of [].constructor(calendar.nextMonth.displayToDate); let i = index;">
+                        <div class="text-slate-500 h-8">
+                            {{calendar.nextMonth.displayFromDate + i }}
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="col-span-1 flex justify-around align-middle text-center items-center">
+            <svg (click)="moveToNextMonth()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="3.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </div>
+    </div>
+
+</div>
