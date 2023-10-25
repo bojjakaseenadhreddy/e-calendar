@@ -13,8 +13,10 @@ import * as moment from 'moment';
 export class CalendarComponent {
   appTitle = 'My Calendar';
 
-  monthNames = Months;
-  weekNames = Object.values(WEEKS);
+  monthNames = Object.values(Months).filter(
+    (value) => typeof value === 'string',
+  );
+  weekNames = Object.values(WEEKS).filter((value) => typeof value === 'string');
 
   calendar: Calendar = new Calendar();
 

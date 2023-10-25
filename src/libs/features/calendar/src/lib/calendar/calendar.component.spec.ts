@@ -11,6 +11,10 @@ describe('#validate - CalendarComponent', () => {
   });
 
   describe('#Validate - month names (3 letter)', () => {
+    it('Should have - only 12 months', () => {
+      expect(component.monthNames.length).toBe(12);
+    });
+
     it.each([
       ['Jan', 0],
       ['Feb', 1],
@@ -30,6 +34,10 @@ describe('#validate - CalendarComponent', () => {
   });
 
   describe('#validate - week names (3 letter)', () => {
+    it('Should have - only 7 weeks', () => {
+      expect(component.weekNames.length).toBe(7);
+    });
+
     it.each([
       ['Sun', 0],
       ['Mon', 1],
