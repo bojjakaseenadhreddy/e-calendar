@@ -1,17 +1,13 @@
 <div class="grid grid-rows-2 grid-cols-1 gap-4 m-4 bg-gray-800 text-white p-4 rounded-xl">
     <div class="flex justify-around align-middle text-center items-center  text-2xl">
-        <div>
-            {{appTitle}}
-        </div>
-        <div>
-            {{calendar.year}}
-        </div>
+        <h1 data-cy="title">{{appTitle}}</h1>
+        <h2>{{calendar.year}}</h2>
     </div>
 
     <div class="flex justify-around align-middle text-center items-center ">
-        <div class="text-slate-500">{{monthNames[calendar.previousMonth.month]}}</div>
-        <div class="text-2xl">{{monthNames[calendar.currentMonth.month]}}</div>
-        <div class=" text-slate-500">{{monthNames[calendar.nextMonth.month]}}</div>
+        <p class="text-slate-500">{{monthNames[calendar.previousMonth.month]}}</p>
+        <p class="text-2xl">{{monthNames[calendar.currentMonth.month]}}</p>
+        <p class=" text-slate-500">{{monthNames[calendar.nextMonth.month]}}</p>
     </div>
 
     <hr>
@@ -26,30 +22,22 @@
 
         <div class="col-span-8">
             <div class="grid grid-cols-7 gap-4 justify-around align-middle text-center items-center  ">
-                <div class="h-8" *ngFor="let weekName of weekNames">
-                    {{weekName}}
-                </div>
+                <div class="h-8" *ngFor="let weekName of weekNames">{{weekName}}</div>
 
                 <ng-container *ngIf="calendar.previousMonth.display">
                     <ng-container
                         *ngFor="let _ of [].constructor(calendar.previousMonth.displayToDate - calendar.previousMonth.displayFromDate + 1); let i = index;">
-                        <div class=" text-slate-500 h-8">
-                            {{calendar.previousMonth.displayFromDate + i }}
-                        </div>
+                        <p class=" text-slate-500 h-8">{{calendar.previousMonth.displayFromDate + i }}</p>
                     </ng-container>
                 </ng-container>
 
                 <ng-container *ngFor="let _ of [].constructor(calendar.currentMonth.displayToDate); let i = index;">
-                    <div class="hover:bg-red-600 hover:rounded-xl h-8">
-                        {{calendar.currentMonth.displayFromDate + i}}
-                    </div>
+                    <p class="hover:bg-red-600 hover:rounded-xl h-8">{{calendar.currentMonth.displayFromDate + i}}</p>
                 </ng-container>
 
                 <ng-container *ngIf="calendar.nextMonth.display">
                     <ng-container *ngFor="let _ of [].constructor(calendar.nextMonth.displayToDate); let i = index;">
-                        <div class="text-slate-500 h-8">
-                            {{calendar.nextMonth.displayFromDate + i }}
-                        </div>
+                        <p class="text-slate-500 h-8">{{calendar.nextMonth.displayFromDate + i }}</p>
                     </ng-container>
                 </ng-container>
             </div>
