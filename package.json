@@ -1,0 +1,23 @@
+{
+  "name": "e-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "postinstall": "cd front-end && npm install",
+    "prepare": "husky install",
+    "start": "cd front-end && nx serve",
+    "build": "cd front-end && nx build",
+    "test": "cd front-end && nx test",
+    "lint": "cd front-end && nx lint",
+    "lint:fix": "cd front-end && nx lint --fix",
+    "e2e": "cd front-end && nx run e2e:e2e",
+    "e2e:production": "cd front-end && nx run e2e:e2e:production",
+    "e2e:chrome": "cd front-end && nx run e2e:e2e:chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}

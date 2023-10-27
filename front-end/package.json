@@ -10,8 +10,7 @@
     "lint:fix": "nx lint --fix",
     "e2e": "nx run e2e:e2e",
     "e2e:production": "nx run e2e:e2e:production",
-    "e2e:chrome": "nx run e2e:e2e:chrome",
-    "prepare": "husky install"
+    "e2e:chrome": "nx run e2e:e2e:chrome"
   },
   "private": true,
   "dependencies": {
@@ -56,7 +55,6 @@
     "eslint": "~8.46.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.13.4",
-    "husky": "^8.0.0",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~13.1.0",
