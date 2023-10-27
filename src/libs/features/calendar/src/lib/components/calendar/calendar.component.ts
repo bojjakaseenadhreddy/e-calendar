@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Calendar, Month, Months, WEEKS } from '@e-calendar/common';
+import {
+  Calendar,
+  CalendarDataService,
+  Month,
+  Months,
+  WEEKS,
+} from '@e-calendar/common';
 import * as moment from 'moment';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'e-calendar-calendar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })
@@ -20,7 +27,7 @@ export class CalendarComponent {
 
   calendar: Calendar = new Calendar();
 
-  constructor() {
+  constructor(private calendarDataService: CalendarDataService) {
     this.populateCalendar();
   }
 
@@ -110,5 +117,12 @@ export class CalendarComponent {
       this.calendar.currentDate.subtract(1, 'month'),
     );
     this.populateCalendar();
+  }
+
+  public onDateSelect(date: number) {
+    const selectedDate = moment(
+      new Date(this.calendar.year, this.calendar.currentMonth.month, date),
+    );
+    this.calendarDataService.setSelectedDate(selectedDate);
   }
 }

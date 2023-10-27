@@ -1,4 +1,4 @@
-<div class="grid grid-rows-2 grid-cols-1 gap-4 m-4 bg-gray-800 text-white p-4 rounded-xl">
+<div class="grid grid-rows-2 grid-cols-1 gap-4 m-4 min-h-[500px] bg-gray-800 text-white p-4 rounded-xl">
     <div class="flex justify-around align-middle text-center items-center  text-2xl">
         <h1 data-cy="title">{{appTitle}}</h1>
         <h2>{{calendar.year}}</h2>
@@ -32,7 +32,8 @@
                 </ng-container>
 
                 <ng-container *ngFor="let _ of [].constructor(calendar.currentMonth.displayToDate); let i = index;">
-                    <p class="hover:bg-red-600 hover:rounded-xl h-8">{{calendar.currentMonth.displayFromDate + i}}</p>
+                    <p (click)="onDateSelect(calendar.currentMonth.displayFromDate + i)"
+                        class="hover:bg-red-600 hover:rounded-xl h-8">{{calendar.currentMonth.displayFromDate + i}}</p>
                 </ng-container>
 
                 <ng-container *ngIf="calendar.nextMonth.display">

@@ -1,10 +1,12 @@
 /* eslint-disable max-lines-per-function */
-import { Calendar, Months } from '@e-calendar/common';
+import { Calendar, CalendarDataService, Months } from '@e-calendar/common';
 import { CalendarComponent } from './calendar.component';
 import moment = require('moment');
 
 describe('#validate - CalendarComponent', () => {
-  const component = new CalendarComponent();
+  const calendarDataService = new CalendarDataService();
+
+  const component = new CalendarComponent(calendarDataService);
 
   it('Should have - title My Calendar', () => {
     expect(component.appTitle).toEqual('My Calendar');
