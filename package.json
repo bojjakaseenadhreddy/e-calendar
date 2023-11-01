@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "postinstall": "cd front-end && npm install",
+    "postinstall": "(cd front-end && npm install)&&(cd back-end && npm install)",
     "prepare": "husky install",
-    "start": "cd front-end && nx serve",
+    "start": "(cd front-end && nx serve)|(cd back-end && npm run start)",
     "build": "cd front-end && nx build",
     "test": "cd front-end && nx test",
     "lint": "cd front-end && nx lint",

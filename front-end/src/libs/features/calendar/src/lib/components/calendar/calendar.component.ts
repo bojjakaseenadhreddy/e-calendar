@@ -8,12 +8,11 @@ import {
   WEEKS,
 } from '@e-calendar/common';
 import * as moment from 'moment';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'e-calendar-calendar',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
 })

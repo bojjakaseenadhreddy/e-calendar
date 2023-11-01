@@ -1,6 +1,6 @@
 import { BaseResponse } from './base-response.interface';
 
-export interface Event {
+export interface Appointment {
   id: string;
   title: string;
   startDate: Date;

@@ -1,6 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalendarDataService, Event } from '@e-calendar/common';
+import {
+  CalendarDataService,
+  Appointment,
+  AppointmentService,
+} from '@e-calendar/common';
 import * as moment from 'moment';
 
 @Component({
@@ -11,16 +15,31 @@ import * as moment from 'moment';
   styleUrls: ['./event.component.scss'],
 })
 export class EventComponent {
-  @Input() events!: Event[];
-  @Input() selectedDate = moment();
+  appointments!: Appointment[];
+  selectedDate = moment();
 
   date!: number;
   month!: string;
   day!: string;
 
-  constructor(private calendarDataService: CalendarDataService) {
+  constructor(
+    private readonly calendarDataService: CalendarDataService,
+    private readonly appointmentsService: AppointmentService,
+  ) {
     this.getSelectedDate();
+    this.getAppointments();
     this.prepareDisplayDataFromSelectedData();
+  }
+
+  private getAppointments(): void {
+    this.appointmentsService.getAppointments('2002-12-12').subscribe(
+      (appointments) => {
+        this.appointments = appointments;
+      },
+      () => {
+        throw new Error('Unable to fetch appointments');
+      },
+    );
   }
 
   private getSelectedDate(): void {

@@ -12,12 +12,12 @@
         <div class="grid grid-cols-10">
             <div class="divide-x-2 col-span-1 w-1 h-[220px] lg:h-[280px] bg-slate-50"></div>
             <div class="col-span-9 ">
-                <ng-container *ngIf="events?.length; else noEvents">
-                    <ng-container *ngFor="let event of events">
-                        <p class="mb-2">{{event.startTime}} {{event.title}}</p>
+                <ng-container *ngIf="appointments?.length; else noAppointments">
+                    <ng-container *ngFor="let appointment of appointments">
+                        <p class="mb-2">{{appointment.startTime}} {{appointment.title}}</p>
                     </ng-container>
                 </ng-container>
-                <ng-template #noEvents>
+                <ng-template #noAppointments>
                     <p>No appointments</p>
                 </ng-template>
             </div>
